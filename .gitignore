@@ -1,0 +1,9 @@
+/_build/
+/cover/
+/deps/
+/doc/
+erl_crash.dump
+*.ez
+.DS_Store
+.elixir_ls/
+libcluster_hyparview-*.tar
