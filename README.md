@@ -1,11 +1,13 @@
 # libcluster_hyparview
 
+[![Hex.pm](https://img.shields.io/hexpm/v/libcluster_hyparview.svg)](https://hex.pm/packages/libcluster_hyparview)
+[![Documentation](https://img.shields.io/badge/docs-hexdocs-blue.svg)](https://hexdocs.pm/libcluster_hyparview)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 A [libcluster](https://hex.pm/packages/libcluster) strategy that uses
 [HyParView](https://hex.pm/packages/hyparview) for membership and connects
 only the nodes in the local *active view* via Erlang distribution — i.e.
 **partial-mesh BEAM distribution**.
-
-> **Status:** Pre-release. Not yet on hex.pm.
 
 ## Why
 
@@ -102,10 +104,29 @@ is to use the discovery strategy to populate `:contacts` at startup and
 then disable it from making `Node.connect` calls itself. (Future improvement
 once the integration shape is clearer.)
 
+## Installation
+
+Add to your deps in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:libcluster_hyparview, "~> 0.1"}
+  ]
+end
+```
+
+`:hyparview` (`~> 0.2`) and `:libcluster` (`~> 3.4`) are pulled in
+transitively.
+
 ## Status
 
-Skeleton only. Plumbing works against `HyParView.Transport.TCP`. Real-world
-integration patterns and tests will land before a hex publish.
+Initial release. The plumbing — `HyParView.Server` startup,
+membership-event subscription, `Cluster.Strategy.connect_nodes/4`
+wiring — works end-to-end against `HyParView.Transport.TCP` and is
+covered by the test suite. Real-world deployment patterns
+(multi-region, mixed strategies, partial-mesh + BEAM-dist gating)
+will accumulate over follow-up minor versions.
 
 ## License
 

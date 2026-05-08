@@ -1,7 +1,7 @@
 defmodule LibclusterHyparview.MixProject do
   use Mix.Project
 
-  @version "0.1.0-dev"
+  @version "0.1.0"
   @source_url "https://github.com/b-erdem/libcluster_hyparview"
   @description """
   libcluster strategy that uses HyParView for membership: nodes are connected

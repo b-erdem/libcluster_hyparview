@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] — 2026-05-08
+
+Initial release.
+
 ### Added
 - `Cluster.Strategy.HyParView` — a `libcluster` strategy that uses
   [`hyparview`](https://hex.pm/packages/hyparview) for membership and
@@ -16,5 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation: pre-flight checklist (`-connect_all false`), full
   topology config example, integration notes with other libcluster
   strategies.
+- Tracks `:hyparview ~> 0.2` (hex).
 
-[Unreleased]: https://github.com/b-erdem/libcluster_hyparview/compare/main...HEAD
+[Unreleased]: https://github.com/b-erdem/libcluster_hyparview/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/b-erdem/libcluster_hyparview/releases/tag/v0.1.0
