@@ -13,7 +13,9 @@ defmodule LibclusterHyparview.MixProject do
     [
       app: :libcluster_hyparview,
       version: @version,
-      elixir: "~> 1.18",
+      # Transitively bound by `:hyparview` which requires 1.19+
+      # (set-theoretic types via @spec).
+      elixir: "~> 1.19",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       consolidate_protocols: Mix.env() != :test,
@@ -47,9 +49,11 @@ defmodule LibclusterHyparview.MixProject do
 
   defp deps do
     [
-      # NB: use {:hyparview, path: "../hyparview"} during local development;
-      # switch to {:hyparview, "~> 0.1"} once both are published.
-      {:hyparview, path: "../hyparview"},
+      # `hyparview` v0.2.0 (with the breaking-change Transport
+      # callback signature) isn't published to hex yet. Track `main`
+      # via git until then; switch to `{:hyparview, "~> 0.2"}` after
+      # the v0.2.0 release.
+      {:hyparview, github: "b-erdem/hyparview", branch: "main"},
       {:libcluster, "~> 3.4"},
       {:ex_doc, "~> 0.34", only: :dev, runtime: false},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
